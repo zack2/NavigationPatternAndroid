@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="imbcomgo.com.navigationpatternandroid.MainFragment"
+        android:label="Fragent test"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/fm_to_f2"
+            app:destination="@id/fragment_2"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_2"
+        android:name="imbcomgo.com.navigationpatternandroid.DeuxiemeFragment"
+        android:label="Fragment 2"
+        tools:layout="@layout/fragment_deuxieme">
+
+        <action
+            android:id="@+id/f2_to_f3"
+            app:destination="@id/fragment_3"
+            app:popUpTo="@+id/fragment_main"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_3"
+        android:name="imbcomgo.com.navigationpatternandroid.TroisiemeFragment"
+        android:label="Fragment 3"
+        tools:layout="@layout/fragment_troisieme">
+        <action
+            android:id="@+id/f3_to_fm"
+            app:destination="@id/fragment_main"
+            app:popUpTo="@+id/fragment_main"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+
+</navigation>
