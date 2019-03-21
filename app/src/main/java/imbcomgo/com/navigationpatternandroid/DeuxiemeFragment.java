@@ -3,9 +3,11 @@ package imbcomgo.com.navigationpatternandroid;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +19,7 @@ import androidx.navigation.Navigation;
  * A simple {@link Fragment} subclass.
  */
 public class DeuxiemeFragment extends Fragment {
-
+    private static final String TAG = DeuxiemeFragment.class.getSimpleName();
 
     public DeuxiemeFragment() {
         // Required empty public constructor
@@ -34,6 +36,14 @@ public class DeuxiemeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView textView = view.findViewById(R.id.tv);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String message = bundle.getString("argument");
+            textView.setText(message);
+        }
+
         view.findViewById(R.id.btn_f2).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_3));
     }
 }

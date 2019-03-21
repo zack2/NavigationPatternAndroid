@@ -29,6 +29,10 @@
             app:popUpTo="@+id/fragment_main"
             app:popUpToInclusive="true"/>
 
+        <argument
+            android:name="argument"
+            app:argType="string" />
+
     </fragment>
 
     <fragment
@@ -41,6 +45,9 @@
             app:destination="@id/fragment_main"
             app:popUpTo="@+id/fragment_main"
             app:popUpToInclusive="true"/>
+
+
+
     </fragment>
 
 

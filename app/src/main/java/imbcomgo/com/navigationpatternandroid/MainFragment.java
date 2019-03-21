@@ -3,9 +3,11 @@ package imbcomgo.com.navigationpatternandroid;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +36,15 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_1).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_2));
+
+        EditText editText = view.findViewById(R.id.edTxt);
+        Bundle bundle = new Bundle();
+
+        view.findViewById(R.id.btn_1).setOnClickListener(v -> {
+            String msg = editText.getText().toString();
+            bundle.putString("argument", msg);
+            Navigation.findNavController(view).navigate(R.id.fragment_2, bundle);
+        });
+
     }
 }
